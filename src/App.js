@@ -2,13 +2,13 @@ import React from 'react';
 import {HashRouter} from 'react-router-dom';
 import './App.css';
 
+import Header from './components/header';
+
 function App() {
   return (
     <HashRouter basename="/">
       <div className="container">
-        <header>
-            <h1>Matching Game</h1>
-        </header>
+        <Header />
         <div className="score-panel">
             <ul className="stars">
                 <li>
