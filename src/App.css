@@ -129,6 +129,11 @@ h1 {
   color: yellow;
 }
 
+.restart{
+  border: none;
+  background: transparent;
+}
+
 .fa-repeat {
   font-size: 48px;
 }
