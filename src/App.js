@@ -9,7 +9,11 @@ class App extends Component{
   constructor(){
     super()
     this.state = {
-      moves: 1
+      moves: 0,
+      timer: {
+        minutes: 0,
+        seconds: 0
+      }
     }
   }
 
@@ -21,12 +25,16 @@ class App extends Component{
       }
     })
   }
+
   render() {
     return (
       <HashRouter basename="/">
         <div className="container">
           <Header />
-          <ScorePannel moves={this.state.moves} onClick={this.addMove}/>
+          <ScorePannel moves={this.state.moves} 
+                        onClick={this.addMove}
+                        timer={this.state.timer}
+          />
         </div>
       </HashRouter>
     );
