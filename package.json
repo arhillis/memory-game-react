@@ -2,6 +2,10 @@
   "name": "memory-game-react",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "11.x"
+  },
+  "homepage": "http://arhillis.github.io/memory-game-react",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
