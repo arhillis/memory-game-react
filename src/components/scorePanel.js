@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Stars from './scorePanel/stars';
+
 class ScorePanel extends Component {
     constructor(props){
         super(props)
@@ -9,17 +11,7 @@ class ScorePanel extends Component {
     render() {
         return (
             <div className="score-panel">
-                <ul className="stars">
-                    <li>
-                        <i className="fa fa-star gold"></i>
-                    </li>
-                    <li>
-                        <i className="fa fa-star gold"></i>
-                    </li>
-                    <li>
-                        <i className="fa fa-star gold"></i>
-                    </li>
-                </ul>
+                <Stars />
                 <p class="moves-para" onClick={this.onClick}>
                     <span className="moves">{this.props.moves}</span> {this.props.moves === 1 
                                                                             ? 'Move' : 'Moves'} 
