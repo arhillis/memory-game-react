@@ -16,7 +16,8 @@ class ScorePanel extends Component {
                     </li>
                 </ul>
                 <p class="moves-para">
-                    <span className="moves">{this.props.moves}</span> Moves
+                    <span className="moves">{this.props.moves}</span> {this.props.moves === 1 
+                                                                            ? 'Move' : 'Moves'} 
                 </p>
                 <div className="timer">
                     <span id="mins">0</span>:
