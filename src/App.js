@@ -12,7 +12,7 @@ class App extends Component{
       moves: 0,
       timer: {
         minutes: 0,
-        seconds: 0
+        seconds: 9
       }
     }
   }
@@ -28,7 +28,12 @@ class App extends Component{
 
   restartGame = () =>{
     this.setState({
-      moves: 0
+      moves: 0,
+      stars: 3,
+      timer: {
+        minutes: 0,
+        seconds: 0
+      }
     })
   }
 
