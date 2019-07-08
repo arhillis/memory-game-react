@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class ScorePanel extends Component {
+    constructor(props){
+        super(props)
+
+        this.onClick = props.onClick.bind(this)
+    }
     render() {
         return (
             <div className="score-panel">
@@ -15,7 +20,7 @@ class ScorePanel extends Component {
                         <i className="fa fa-star gold"></i>
                     </li>
                 </ul>
-                <p class="moves-para">
+                <p class="moves-para" onClick={this.onClick}>
                     <span className="moves">{this.props.moves}</span> {this.props.moves === 1 
                                                                             ? 'Move' : 'Moves'} 
                 </p>
