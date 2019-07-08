@@ -15,7 +15,7 @@ class ScorePanel extends Component {
         const {moves, timer} = this.props;
         return (
             <div className="score-panel">
-                <Stars />
+                <Stars stars={1}/>
                 <Moves moves={moves} onClick={this.onClick}/>
                 <Timer timer={timer} />
                 <RestartButton restart={this.props.restart}/>                
