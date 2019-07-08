@@ -6,12 +6,18 @@ import Header from './components/header';
 import ScorePannel from './components/scorePanel';
 
 class App extends Component{
+  constructor(){
+    super()
+    this.state = {
+      moves: 3
+    }
+  }
   render() {
     return (
       <HashRouter basename="/">
         <div className="container">
           <Header />
-          <ScorePannel moves={3}/>
+          <ScorePannel moves={this.state.moves}/>
         </div>
       </HashRouter>
     );
