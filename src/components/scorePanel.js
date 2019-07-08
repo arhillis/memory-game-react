@@ -16,7 +16,7 @@ class ScorePanel extends Component {
                     </li>
                 </ul>
                 <p class="moves-para">
-                    <span className="moves">0</span> Moves
+                    <span className="moves">{this.props.moves}</span> Moves
                 </p>
                 <div className="timer">
                     <span id="mins">0</span>:

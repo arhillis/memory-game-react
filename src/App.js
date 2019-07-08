@@ -11,7 +11,7 @@ class App extends Component{
       <HashRouter basename="/">
         <div className="container">
           <Header />
-          <ScorePannel />
+          <ScorePannel moves={3}/>
         </div>
       </HashRouter>
     );
