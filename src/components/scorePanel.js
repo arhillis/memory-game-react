@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Stars from './scorePanel/stars';
+import Moves from './scorePanel/moves';
 import Timer from './scorePanel/timer';
 
 class ScorePanel extends Component {
@@ -8,14 +9,13 @@ class ScorePanel extends Component {
         super(props)
         this.onClick = props.onClick.bind(this)
     }
+    
     render() {
         const {moves, timer} = this.props;
         return (
             <div className="score-panel">
                 <Stars />
-                <p class="moves-para" onClick={this.onClick}>
-                    <span className="moves">{moves}</span> {moves === 1 ? 'Move' : 'Moves'} 
-                </p>
+                <Moves moves={moves} onClick={this.onClick}/>
                 <Timer timer={timer} />
 
                 <div className="restart">
