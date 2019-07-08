@@ -26,13 +26,20 @@ class App extends Component{
     })
   }
 
+  restartGame = () =>{
+    this.setState({
+      moves: 0
+    })
+  }
+
   render() {
     return (
       <HashRouter basename="/">
         <div className="container">
           <Header />
-          <ScorePannel moves={this.state.moves} 
+          <ScorePannel moves={this.state.moves}
                         onClick={this.addMove}
+                        restart={this.restartGame}
                         timer={this.state.timer}
           />
         </div>

@@ -18,8 +18,7 @@ class ScorePanel extends Component {
                 <Stars />
                 <Moves moves={moves} onClick={this.onClick}/>
                 <Timer timer={timer} />
-                <RestartButton />
-                
+                <RestartButton restart={this.props.restart}/>                
             </div>
         );
     }
