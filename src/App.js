@@ -9,15 +9,24 @@ class App extends Component{
   constructor(){
     super()
     this.state = {
-      moves: 3
+      moves: 1
     }
+  }
+
+  addMove = () =>{
+    this.setState(prevState =>{
+      const moves = prevState.moves + 1;
+      return {
+        moves: moves
+      }
+    })
   }
   render() {
     return (
       <HashRouter basename="/">
         <div className="container">
           <Header />
-          <ScorePannel moves={this.state.moves}/>
+          <ScorePannel moves={this.state.moves} onClick={this.addMove}/>
         </div>
       </HashRouter>
     );
