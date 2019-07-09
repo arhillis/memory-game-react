@@ -43,11 +43,9 @@ class App extends Component{
       <HashRouter basename="/">
         <div className="container">
           <Header />
-          <ScorePannel moves={this.state.moves}
+          <ScorePannel state={this.state}
                         onClick={this.addMove}
                         restart={this.restartGame}
-                        timer={this.state.timer}
-                        stars={this.state.stars}
           />
         </div>
       </HashRouter>
