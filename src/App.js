@@ -21,10 +21,14 @@ class App extends Component{
 
   addMove = () =>{
     this.setState(prevState =>{
-      const moves = prevState.moves + 1;
+      const {moves, stars} = prevState;  
+      const move = moves + 1;
+
       return {
-        moves: moves
+        moves: move,
+        stars:  move > 17 && move % 6 === 0  ? stars - 1 : stars
       }
+
     })
   }
 
