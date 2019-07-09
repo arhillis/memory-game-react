@@ -51,10 +51,7 @@ class App extends Component{
       temp.push(faces.splice(random, 1)[0]);//Pulls a random element out of the original array and pushes it to the temp array
     }
 
-    console.log(this.state.faces)
     return temp;
-
-
   }
 
   addMove = () =>{
@@ -71,8 +68,7 @@ class App extends Component{
   }
 
   restartGame = () =>{
-
-    this.shuffleCards()
+    const cards = this.shuffleCards();
     
     this.setState({
       moves: 0,
@@ -80,9 +76,9 @@ class App extends Component{
       timer: {
         minutes: 0,
         seconds: 0
-      }
+      },
+      cards: cards
     })
-
   }
 
   render() {
@@ -95,7 +91,7 @@ class App extends Component{
                         restart={this.restartGame}
           />
           <Deck addMove={this.addMove} 
-                cards={this.state.faces}
+                cards={this.state.cards}
           />
         </div>
       </HashRouter>
