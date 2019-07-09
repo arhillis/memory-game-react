@@ -14,7 +14,7 @@ class App extends Component{
       moves: 0,
       timer: {
         minutes: 0,
-        seconds: 9
+        seconds: 57
       },
       stars: 3,
       faces: [
@@ -63,10 +63,10 @@ class App extends Component{
     this.setState(prevState => {
       const {seconds, minutes} = prevState.timer;
       let secs = seconds === 59 ? 0 : seconds + 1;
-      
+
       return {
         timer: {
-          minutes: minutes,
+          minutes: secs === 0 ? minutes + 1 : minutes,
           seconds: secs
         }
       };
