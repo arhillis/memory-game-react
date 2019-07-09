@@ -18,13 +18,14 @@ class Deck extends Component {
                 <button onClick={this.clockTick}>Stop timer</button>
                 <ul className="deck">
                     {cards.map((card) => {
-                        const {id, face} = card;
+                        const {id, face, matched} = card;
 
                         return (
                             <li key={id} 
                                 className={
                                     (firstCard !== null && id === firstCard.id) || (secondCard !== null && id === secondCard.id)
-                                    ? "card animated face-up" : "card animated"
+                                    ? matched ? "card animated face-up matched"  :   "card animated face-up"                                
+                                    : "card animated"
                                 }
                                 onClick={() => this.flipCard(id)}
                             >
