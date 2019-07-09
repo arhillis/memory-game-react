@@ -91,6 +91,7 @@ class App extends Component{
   flipCard = (id) =>{
     this.setState(prevState =>{
       const cards = [...prevState.cards];
+      const {firstCard} = prevState;
       let card = cards.filter(crd => crd.id === id)[0];
 
       card.faceUp = true
@@ -104,7 +105,8 @@ class App extends Component{
 
       return {
         cards: cards,
-        firstCard: card
+        firstCard: firstCard === null ? card : firstCard,
+        secondCard: firstCard === null ? null : card
       }
     })
   }
