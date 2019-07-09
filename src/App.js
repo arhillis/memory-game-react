@@ -119,7 +119,9 @@ class App extends Component{
         minutes: 0,
         seconds: 0
       },
-      cards: cards
+      cards: cards,
+      firstCard: null,
+      secondCard: null
     })
   }
 
