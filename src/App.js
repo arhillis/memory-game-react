@@ -47,6 +47,7 @@ class App extends Component{
                         onClick={this.addMove}
                         restart={this.restartGame}
                         timer={this.state.timer}
+                        stars={this.state.stars}
           />
         </div>
       </HashRouter>

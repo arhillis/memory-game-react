@@ -12,10 +12,10 @@ class ScorePanel extends Component {
     }
 
     render() {
-        const {moves, timer} = this.props;
+        const {moves, timer, stars} = this.props;
         return (
             <div className="score-panel">
-                <Stars stars={1}/>
+                <Stars stars={stars}/>
                 <Moves moves={moves} onClick={this.onClick}/>
                 <Timer timer={timer} />
                 <RestartButton restart={this.props.restart}/>                
