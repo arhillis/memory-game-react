@@ -11,18 +11,21 @@ class Deck extends Component {
     }
 
     render() {
-        const {cards} = this.props;
+        const {cards, firstCard} = this.props;
         return (
             <div>
                 <button onClick={this.addMove}>Make move</button>
                 <button onClick={this.clockTick}>Stop timer</button>
                 <ul className="deck">
                     {cards.map((card) => {
-                        const {id, face, faceUp} = card;
+                        const {id, face} = card;
 
                         return (
                             <li key={id} 
-                                className={faceUp ? "card animated face-up" : "card animated"}
+                                className={
+                                    firstCard !== null && id === firstCard.id
+                                    ? "card animated face-up" : "card animated"
+                                }
                                 onClick={() => this.flipCard(id)}
                             >
                                 <FontAwesomeIcon icon={face} />
