@@ -15,7 +15,26 @@ class App extends Component{
         minutes: 0,
         seconds: 9
       },
-      stars: 3
+      stars: 3,
+      faces: [
+        "fa-diamond",
+        "fa-paper-plane-o",
+        "fa-anchor",
+        "fa-bolt",
+        "fa-cube",
+        "fa-leaf",
+        "fa-bicycle",
+        "fa-bomb",
+        "fa-diamond",
+        "fa-paper-plane-o",
+        "fa-anchor",
+        "fa-bolt",
+        "fa-cube",
+        "fa-leaf",
+        "fa-bicycle",
+        "fa-bomb"
+      ],
+      cards: []
     }
   }
 
@@ -51,7 +70,9 @@ class App extends Component{
           <ScorePannel state={this.state}
                         restart={this.restartGame}
           />
-          <Deck addMove={this.addMove} />
+          <Deck addMove={this.addMove} 
+                cards={this.state.faces}
+          />
         </div>
       </HashRouter>
     );
