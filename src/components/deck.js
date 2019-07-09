@@ -17,7 +17,7 @@ class Deck extends Component {
                 <ul className="deck">
                     {cards.map((card, index) => 
                         <li key={index} className="card animated face-up">
-                            <FontAwesomeIcon icon={card} />
+                            <FontAwesomeIcon icon={card.face} />
                         </li>
                     )}
                 </ul>

@@ -48,7 +48,10 @@ class App extends Component{
 
     while(faces.length > 0){
       let random = Math.floor(Math.random() * faces.length);
-      temp.push(faces.splice(random, 1)[0]);//Pulls a random element out of the original array and pushes it to the temp array
+      temp.push({
+        face: faces.splice(random, 1)[0],
+        faceUp: true
+      });//Pulls a random element out of the original array and pushes it to the temp array
     }
 
     return temp;
