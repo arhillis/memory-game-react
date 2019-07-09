@@ -6,17 +6,12 @@ import Timer from './scorePanel/timer';
 import RestartButton from './scorePanel/restartButton';
 
 class ScorePanel extends Component {
-    constructor(props){
-        super(props)
-        this.onClick = props.onClick.bind(this)
-    }
-
     render() {
         const {moves, timer, stars} = this.props.state;
         return (
             <div className="score-panel">
                 <Stars stars={stars}/>
-                <Moves moves={moves} onClick={this.onClick}/>
+                <Moves moves={moves}/>
                 <Timer timer={timer} />
                 <RestartButton restart={this.props.restart}/>                
             </div>

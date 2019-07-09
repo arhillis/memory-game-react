@@ -45,7 +45,6 @@ class App extends Component{
         <div className="container">
           <Header />
           <ScorePannel state={this.state}
-                        onClick={this.addMove}
                         restart={this.restartGame}
           />
           <Deck />
