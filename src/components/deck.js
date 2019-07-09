@@ -11,7 +11,7 @@ class Deck extends Component {
     }
 
     render() {
-        const {cards, firstCard} = this.props;
+        const {cards, firstCard, secondCard} = this.props;
         return (
             <div>
                 <button onClick={this.addMove}>Make move</button>
@@ -23,7 +23,7 @@ class Deck extends Component {
                         return (
                             <li key={id} 
                                 className={
-                                    firstCard !== null && id === firstCard.id
+                                    (firstCard !== null && id === firstCard.id) || (secondCard !== null && id === secondCard.id)
                                     ? "card animated face-up" : "card animated"
                                 }
                                 onClick={() => this.flipCard(id)}

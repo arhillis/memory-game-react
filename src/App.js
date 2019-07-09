@@ -89,25 +89,29 @@ class App extends Component{
   }
 
   flipCard = (id) =>{
-    this.setState(prevState =>{
-      const cards = [...prevState.cards];
-      const {firstCard} = prevState;
-      let card = cards.filter(crd => crd.id === id)[0];
-
-      card.faceUp = true
-
       /*
         Three possibilities:
           1. There are no face-up cards (both firstCard and secondCard are null)
           2. There is one face-up card (only secondCard is null)
           3. There are two face-up cards (neither are null)
       */
+    this.setState(prevState =>{
+      const {secondCard} = prevState;
+      
+      if(secondCard === null){
+        const cards = [...prevState.cards];
+        const {firstCard} = prevState;
+        let card = cards.filter(crd => crd.id === id)[0];
 
-      return {
-        cards: cards,
-        firstCard: firstCard === null ? card : firstCard,
-        secondCard: firstCard === null ? null : card
+        card.faceUp = true
+
+        return {
+          cards: cards,
+          firstCard: firstCard === null ? card : firstCard,
+          secondCard: firstCard === null ? null : card
+        }
       }
+      
     })
   }
 
@@ -139,6 +143,7 @@ class App extends Component{
           <Deck addMove={this.addMove} 
                 cards={this.state.cards}
                 firstCard = {this.state.firstCard}
+                secondCard = {this.state.secondCard}
                 flipCard = {this.flipCard}
                 clockTick = {this.clockTick}
           />
