@@ -59,13 +59,17 @@ class App extends Component{
     return temp;
   }
 
-  clockTick(){
+  clockTick = () => {
     this.setState(prevState => {
-      const {seconds} = prevState.timer;
-
+      const {seconds, minutes} = prevState.timer;
+      let secs = seconds === 59 ? 0 : seconds + 1;
+      
       return {
-        timer: {seconds: seconds + 1}
-      }
+        timer: {
+          minutes: minutes,
+          seconds: secs
+        }
+      };
     })
   }
 
