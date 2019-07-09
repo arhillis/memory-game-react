@@ -51,9 +51,9 @@ class App extends Component{
       let random = Math.floor(Math.random() * faces.length);
       temp.push({
         id: uuid.v4(),
-        face: faces.splice(random, 1)[0],
-        faceUp: true
-      });//Pulls a random element out of the original array and pushes it to the temp array
+        face: faces.splice(random, 1)[0],//Pulls a random element out of this.faces and pushes it to the temp array
+        faceUp: false
+      });
     }
 
     return temp;
@@ -69,6 +69,22 @@ class App extends Component{
         stars:  move > 17 && move % 6 === 0  ? stars - 1 : stars
       }
 
+    })
+  }
+
+  flipCard = (id) =>{
+    this.setState(prevState =>{
+      const cards = [...prevState.cards];
+
+      cards.map(card =>{
+        if(card.id === id){
+          card.faceUp = !card.faceUp
+        }
+
+        return card
+      })
+
+      return {cards: cards}
     })
   }
 
@@ -97,6 +113,7 @@ class App extends Component{
           />
           <Deck addMove={this.addMove} 
                 cards={this.state.cards}
+                onClick = {this.flipCard}
           />
         </div>
       </HashRouter>
