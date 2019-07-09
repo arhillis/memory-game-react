@@ -54,7 +54,7 @@ class App extends Component{
       temp.push({
         id: uuid.v4(),
         face: faces.splice(random, 1)[0],//Pulls a random element out of this.faces and pushes it to the temp array
-        faceUp: false
+        matched: false
       });
     }
 
@@ -99,16 +99,20 @@ class App extends Component{
     const {secondCard} = this.state;
     
     if(secondCard === null){      //Options 1 or 2
-      this.setState(prevState =>{
-        const {firstCard} = prevState;
-        let card = prevState.cards.filter(crd => crd.id === id)[0];
+      const {firstCard, cards} = this.state
+      const card = cards.filter(crd => crd.id === id)[0];
 
-        return {
-          firstCard: firstCard === null ? card : firstCard,
-          secondCard: firstCard === null ? null : card
-        }
-      })      
+      if(firstCard === null){
+        this.setState({firstCard: card})
+      }else{
+        this.setState({secondCard: card})
+        setTimeout(this.endTurn, 1500)
+      }
     }
+  }
+
+  endTurn = () =>{
+    console.log("Turn over!!!")
   }
 
   restartGame = () =>{
