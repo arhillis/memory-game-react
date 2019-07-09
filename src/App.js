@@ -47,7 +47,7 @@ class App extends Component{
           <ScorePannel state={this.state}
                         restart={this.restartGame}
           />
-          <Deck />
+          <Deck addMove={this.addMove} />
         </div>
       </HashRouter>
     );
