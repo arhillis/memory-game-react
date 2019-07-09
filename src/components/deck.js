@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 class Deck extends Component {
     constructor(props){
@@ -15,8 +17,7 @@ class Deck extends Component {
                 <ul className="deck">
                     {cards.map((card, index) => 
                         <li key={index} className="card animated face-up">
-                            <i className={card}></i>
-                            {card}
+                            <FontAwesomeIcon icon={card} />
                         </li>
                     )}
                 </ul>
