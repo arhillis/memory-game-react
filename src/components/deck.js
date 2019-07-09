@@ -6,7 +6,7 @@ class Deck extends Component {
     constructor(props){
         super(props)
         this.addMove = props.addMove.bind(this)
-        this.onClick = props.onClick.bind(this)
+        this.flipCard = props.flipCard.bind(this)
     }
 
     render() {
@@ -22,7 +22,7 @@ class Deck extends Component {
                         return (
                             <li key={id} 
                                 className={faceUp ? "card animated face-up" : "card animated"}
-                                onClick={() => this.onClick(id)}
+                                onClick={() => this.flipCard(id)}
                             >
                                 <FontAwesomeIcon icon={face} />
                             </li>
