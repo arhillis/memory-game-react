@@ -91,13 +91,14 @@ class App extends Component{
   flipCard = (id) =>{
       /*
         Three possibilities:
-          1. There are no face-up cards (both firstCard and secondCard are null)
-          2. There is one face-up card (only secondCard is null)
-          3. There are two face-up cards (neither are null)
+          1. There are no face-up cards (both firstCard and secondCard are null) - we want to set firstCard to the card that was flipped
+          2. There is one face-up card (only secondCard is null) - we want to set secondCard to the card that was flipped and end the turn
+          3. There are two face-up cards (neither are null) - we do not want to do anything
       */
     this.setState(prevState =>{
       const {secondCard} = prevState;
       
+      //If second
       if(secondCard === null){
         const cards = [...prevState.cards];
         const {firstCard} = prevState;
