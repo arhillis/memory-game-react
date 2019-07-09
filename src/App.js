@@ -36,7 +36,8 @@ class App extends Component{
         "paper-plane",
       ],
       cards: [],
-      faceUpCards: []
+      firstCard: null,
+      secondCard: null
     }
   }
 
@@ -90,27 +91,20 @@ class App extends Component{
   flipCard = (id) =>{
     this.setState(prevState =>{
       const cards = [...prevState.cards];
-      let faceUpCards = [...prevState.faceUpCards];
+      let card = cards.filter(crd => crd.id === id)[0];
 
-      cards.map(card =>{
-        if(card.id === id){
-          card.faceUp = !card.faceUp
+      card.faceUp = true
 
-          if(card.faceUp){
-            faceUpCards.push(card)
-          }else{
-            faceUpCards = faceUpCards.filter(crd => crd.id !== card.id)
-          }
-
-          console.log(faceUpCards.length)
-        }
-
-        return card
-      })
+      /*
+        Three possibilities:
+          1. There are no face-up cards (both firstCard and secondCard are null)
+          2. There is one face-up card (only secondCard is null)
+          3. There are two face-up cards (neither are null)
+      */
 
       return {
         cards: cards,
-        faceUpCards: faceUpCards
+        firstCard: card
       }
     })
   }
@@ -140,6 +134,7 @@ class App extends Component{
           />
           <Deck addMove={this.addMove} 
                 cards={this.state.cards}
+                firstCard = {this.state.firstCard}
                 flipCard = {this.flipCard}
                 clockTick = {this.clockTick}
           />
