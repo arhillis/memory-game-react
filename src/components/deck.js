@@ -15,11 +15,14 @@ class Deck extends Component {
                 <button onClick={this.addMove}>Make move</button>
                 <button>Stop timer</button>
                 <ul className="deck">
-                    {cards.map((card, index) => 
-                        <li key={index} className="card animated face-up">
-                            <FontAwesomeIcon icon={card.face} />
-                        </li>
-                    )}
+                    {cards.map((card) => {
+                        const {id, face} = card;
+                        return (
+                            <li key={id} className="card animated face-up">
+                                <FontAwesomeIcon icon={face} />
+                            </li>
+                        )
+                    })}
                 </ul>
             </div>
         );
