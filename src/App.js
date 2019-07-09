@@ -13,7 +13,8 @@ class App extends Component{
       timer: {
         minutes: 0,
         seconds: 9
-      }
+      },
+      stars: 3
     }
   }
 
