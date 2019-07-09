@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {HashRouter} from 'react-router-dom';
 import './App.css';
+import uuid from 'uuid';
 
 import Header from './components/header';
 import ScorePannel from './components/scorePanel';
@@ -49,6 +50,7 @@ class App extends Component{
     while(faces.length > 0){
       let random = Math.floor(Math.random() * faces.length);
       temp.push({
+        id: uuid.v4(),
         face: faces.splice(random, 1)[0],
         faceUp: true
       });//Pulls a random element out of the original array and pushes it to the temp array
