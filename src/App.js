@@ -4,6 +4,7 @@ import './App.css';
 
 import Header from './components/header';
 import ScorePannel from './components/scorePanel';
+import Deck from './components/deck';
 
 class App extends Component{
   constructor(){
@@ -47,6 +48,7 @@ class App extends Component{
                         onClick={this.addMove}
                         restart={this.restartGame}
           />
+          <Deck />
         </div>
       </HashRouter>
     );
