@@ -35,7 +35,8 @@ class App extends Component{
         "bomb",
         "paper-plane",
       ],
-      cards: []
+      cards: [],
+      faceUpCards: []
     }
   }
 
@@ -89,16 +90,28 @@ class App extends Component{
   flipCard = (id) =>{
     this.setState(prevState =>{
       const cards = [...prevState.cards];
+      let faceUpCards = [...prevState.faceUpCards];
 
       cards.map(card =>{
         if(card.id === id){
           card.faceUp = !card.faceUp
+
+          if(card.faceUp){
+            faceUpCards.push(card)
+          }else{
+            faceUpCards = faceUpCards.filter(crd => crd.id !== card.id)
+          }
+
+          console.log(faceUpCards.length)
         }
 
         return card
       })
 
-      return {cards: cards}
+      return {
+        cards: cards,
+        faceUpCards: faceUpCards
+      }
     })
   }
 
