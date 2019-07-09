@@ -7,7 +7,7 @@ class Stars extends Component {
 
         for(let i = 0; i < 3; i++){
             display.push(
-                <li>
+                <li key={i}>
                     <i className={i >= this.props.stars ? "fa fa-star" : "fa fa-star gold"}></i>
                 </li>
             )
