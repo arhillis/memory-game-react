@@ -38,6 +38,22 @@ class App extends Component{
     }
   }
 
+  componentDidMount(){
+    this.shuffleCards();
+  }
+
+  shuffleCards = () => {
+    let temp = [], faces = this.state.faces;
+
+    while(faces.length > 0){
+      let random = Math.floor(Math.random() * faces.length);
+      temp.push(faces.splice(random, 1)[0]);//Pulls a random element out of the original array and pushes it to the temp array
+
+      this.setState({cards: temp})
+}
+
+  }
+
   addMove = () =>{
     this.setState(prevState =>{
       const {moves, stars} = prevState;  
@@ -52,6 +68,9 @@ class App extends Component{
   }
 
   restartGame = () =>{
+
+    this.shuffleCards()
+    
     this.setState({
       moves: 0,
       stars: 3,
@@ -60,9 +79,11 @@ class App extends Component{
         seconds: 0
       }
     })
+
   }
 
   render() {
+
     return (
       <HashRouter basename="/">
         <div className="container">
@@ -71,7 +92,7 @@ class App extends Component{
                         restart={this.restartGame}
           />
           <Deck addMove={this.addMove} 
-                cards={this.state.faces}
+                cards={this.state.cards}
           />
         </div>
       </HashRouter>
