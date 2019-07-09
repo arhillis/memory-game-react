@@ -6,6 +6,7 @@ class Deck extends Component {
     constructor(props){
         super(props)
         this.addMove = props.addMove.bind(this)
+        this.clockTick = props.clockTick.bind(this)
         this.flipCard = props.flipCard.bind(this)
     }
 
@@ -14,7 +15,7 @@ class Deck extends Component {
         return (
             <div>
                 <button onClick={this.addMove}>Make move</button>
-                <button>Stop timer</button>
+                <button onClick={this.clockTick}>Stop timer</button>
                 <ul className="deck">
                     {cards.map((card) => {
                         const {id, face, faceUp} = card;
