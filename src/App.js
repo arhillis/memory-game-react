@@ -95,25 +95,20 @@ class App extends Component{
           2. There is one face-up card (only secondCard is null) - we want to set secondCard to the card that was flipped and end the turn
           3. There are two face-up cards (neither are null) - we do not want to do anything
       */
-    this.setState(prevState =>{
-      const {secondCard} = prevState;
-      
-      //If second
-      if(secondCard === null){
-        const cards = [...prevState.cards];
+    
+    const {secondCard} = this.state;
+    
+    if(secondCard === null){      //Options 1 or 2
+      this.setState(prevState =>{
         const {firstCard} = prevState;
-        let card = cards.filter(crd => crd.id === id)[0];
-
-        card.faceUp = true
+        let card = prevState.cards.filter(crd => crd.id === id)[0];
 
         return {
-          cards: cards,
           firstCard: firstCard === null ? card : firstCard,
           secondCard: firstCard === null ? null : card
         }
-      }
-      
-    })
+      })      
+    }
   }
 
   restartGame = () =>{
