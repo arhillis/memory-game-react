@@ -4,7 +4,8 @@ class Deck extends Component {
     render() {
         return (
             <div>
-                Deck goes here.
+                <button>Make move</button>
+                <button>Stop timer</button>
             </div>
         );
     }
