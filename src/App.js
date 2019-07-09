@@ -59,6 +59,16 @@ class App extends Component{
     return temp;
   }
 
+  clockTick(){
+    this.setState(prevState => {
+      const {seconds} = prevState.timer;
+
+      return {
+        timer: {seconds: seconds + 1}
+      }
+    })
+  }
+
   addMove = () =>{
     this.setState(prevState =>{
       const {moves, stars} = prevState;  
@@ -113,7 +123,8 @@ class App extends Component{
           />
           <Deck addMove={this.addMove} 
                 cards={this.state.cards}
-                onClick = {this.flipCard}
+                flipCard = {this.flipCard}
+                clockTick = {this.clockTick}
           />
         </div>
       </HashRouter>
