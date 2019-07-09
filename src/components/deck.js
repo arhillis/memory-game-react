@@ -16,9 +16,9 @@ class Deck extends Component {
                 <button>Stop timer</button>
                 <ul className="deck">
                     {cards.map((card) => {
-                        const {id, face} = card;
+                        const {id, face, faceUp} = card;
                         return (
-                            <li key={id} className="card animated face-up">
+                            <li key={id} className={faceUp ? "card animated face-up" : "card animated"}>
                                 <FontAwesomeIcon icon={face} />
                             </li>
                         )
