@@ -112,7 +112,26 @@ class App extends Component{
   }
 
   endTurn = () =>{
-    console.log("Turn over!!!")
+    this.setState(prevState =>{
+      const {firstCard, secondCard, cards} = prevState;
+
+      if(firstCard.face === secondCard.face){
+        cards.map(card => {
+          const {id} = card;
+          if(id === firstCard.id || id === secondCard.id){
+            card.matched = true;
+            console.log(card)
+          }
+          return card
+        })
+      }
+
+      return {
+        cards: cards,
+        firstCard: null,
+        secondCard: null
+      }
+    })
   }
 
   restartGame = () =>{
