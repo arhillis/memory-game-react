@@ -126,14 +126,22 @@ class App extends Component{
         })
       }
 
+      if(cards.filter(crd => crd.matched).length === 16){
+        this.endGame()
+      }
+
       return {
         cards: cards,
         firstCard: null,
         secondCard: null,
         moves: move,
-        stars:  move > 17 && move % 6 === 0  ? stars - 1 : stars
+        stars:  move >= 18 && move % 6 === 0  ? stars - 1 : stars
       }
     })
+  }
+
+  endGame = () => {
+    console.log("Game Ended!")
   }
 
   restartGame = () =>{
