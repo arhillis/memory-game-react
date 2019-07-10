@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class Deck extends Component {
     constructor(props){
         super(props)
-        this.addMove = props.addMove.bind(this)
         this.clockTick = props.clockTick.bind(this)
         this.flipCard = props.flipCard.bind(this)
     }
@@ -14,7 +13,6 @@ class Deck extends Component {
         const {cards, firstCard, secondCard} = this.props;
         return (
             <div>
-                <button onClick={this.addMove}>Make move</button>
                 <button onClick={this.clockTick}>Stop timer</button>
                 <ul className="deck">
                     {cards.map((card) => {
