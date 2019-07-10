@@ -113,14 +113,14 @@ class App extends Component{
 
   endTurn = () =>{
     this.setState(prevState =>{
-      const {firstCard, secondCard, cards} = prevState;
+      const {firstCard, secondCard, cards, moves, stars} = prevState;
+      const move = moves + 1;
 
       if(firstCard.face === secondCard.face){
         cards.map(card => {
           const {id} = card;
           if(id === firstCard.id || id === secondCard.id){
             card.matched = true;
-            console.log(card)
           }
           return card
         })
@@ -129,7 +129,9 @@ class App extends Component{
       return {
         cards: cards,
         firstCard: null,
-        secondCard: null
+        secondCard: null,
+        moves: move,
+        stars:  move > 17 && move % 6 === 0  ? stars - 1 : stars
       }
     })
   }
