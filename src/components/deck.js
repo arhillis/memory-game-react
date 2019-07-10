@@ -24,8 +24,8 @@ class Deck extends Component {
                             <li key={id} 
                                 className={
                                     (firstCard !== null && id === firstCard.id) || (secondCard !== null && id === secondCard.id)
-                                    ? matched ? "card animated face-up matched"  :   "card animated face-up"                                
-                                    : "card animated"
+                                    ? "card animated face-up"  :   matched ? 
+                                                                                "card animated face-up matched" : "card animated"
                                 }
                                 onClick={() => this.flipCard(id)}
                             >
