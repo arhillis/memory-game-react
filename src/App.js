@@ -6,6 +6,7 @@ import uuid from 'uuid';
 import Header from './components/header';
 import ScorePannel from './components/scorePanel';
 import Deck from './components/deck';
+import Modal from './components/modal'
 
 class App extends Component{
   constructor(){
@@ -185,6 +186,7 @@ class App extends Component{
                 secondCard = {this.state.secondCard}
                 flipCard = {this.flipCard}
           />
+          <Modal />
         </div>
       </HashRouter>
     );
