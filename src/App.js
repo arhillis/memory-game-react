@@ -14,7 +14,7 @@ class App extends Component{
       moves: 0,
       timer: {
         minutes: 0,
-        seconds: 57
+        seconds: 0
       },
       stars: 3,
       faces: [
@@ -37,7 +37,8 @@ class App extends Component{
       ],
       cards: [],
       firstCard: null,
-      secondCard: null
+      secondCard: null,
+      playing: false
     }
   }
 
@@ -59,6 +60,10 @@ class App extends Component{
     }
 
     return temp;
+  }
+
+  startClock = ()=>{
+    this.setState({playing: true})
   }
 
   clockTick = () => {
@@ -95,6 +100,9 @@ class App extends Component{
           2. There is one face-up card (only secondCard is null) - we want to set secondCard to the card that was flipped and end the turn
           3. There are two face-up cards (neither are null) - we do not want to do anything
       */
+    if(!this.state.playing){
+      this.setState({playing: true})
+    }
     
     const {secondCard} = this.state;
     
@@ -141,7 +149,7 @@ class App extends Component{
   }
 
   endGame = () => {
-    console.log("Game Ended!")
+    this.setState({playing: false})
   }
 
   restartGame = () =>{
@@ -156,7 +164,8 @@ class App extends Component{
       },
       cards: cards,
       firstCard: null,
-      secondCard: null
+      secondCard: null,
+      playing: false
     })
   }
 
@@ -168,13 +177,13 @@ class App extends Component{
           <Header />
           <ScorePannel state={this.state}
                         restart={this.restartGame}
+                        clockTick = {this.clockTick}
           />
           <Deck addMove={this.addMove} 
                 cards={this.state.cards}
                 firstCard = {this.state.firstCard}
                 secondCard = {this.state.secondCard}
                 flipCard = {this.flipCard}
-                clockTick = {this.clockTick}
           />
         </div>
       </HashRouter>
