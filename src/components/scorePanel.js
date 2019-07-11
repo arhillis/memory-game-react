@@ -7,12 +7,15 @@ import RestartButton from './scorePanel/restartButton';
 
 class ScorePanel extends Component {
     render() {
-        const {moves, timer, stars} = this.props.state;
+        const {moves, timer, stars, playing} = this.props.state;
         return (
             <div className="score-panel">
                 <Stars stars={stars}/>
                 <Moves moves={moves}/>
-                <Timer timer={timer} />
+                <Timer timer={timer} 
+                        enabled={playing}
+                        clockTick={this.props.clockTick}
+                />
                 <RestartButton restart={this.props.restart}/>                
             </div>
         );
