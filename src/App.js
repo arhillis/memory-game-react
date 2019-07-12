@@ -181,6 +181,7 @@ class App extends Component{
   }
 
   render() {
+    const {cards, firstCard, secondCard, timer, moves, stars, modalShown} = this.state;
 
     return (
       <HashRouter basename="/">
@@ -191,16 +192,16 @@ class App extends Component{
                         clockTick = {this.clockTick}
           />
           <Deck addMove={this.addMove} 
-                cards={this.state.cards}
-                firstCard = {this.state.firstCard}
-                secondCard = {this.state.secondCard}
+                cards={cards}
+                firstCard = {firstCard}
+                secondCard = {secondCard}
                 flipCard = {this.flipCard}
           />
           <Modal 
-            time={this.state.timer}
-            moves={this.state.moves}
-            stars={this.state.stars}
-            modalShown={this.state.modalShown}
+            time={timer}
+            moves={moves}
+            stars={stars}
+            modalShown={modalShown}
             hideModal={this.hideModal}
           />
         </div>
