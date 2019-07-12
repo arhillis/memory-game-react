@@ -39,7 +39,8 @@ class App extends Component{
       cards: [],
       firstCard: null,
       secondCard: null,
-      playing: false
+      playing: false,
+      modalShown: false
     }
   }
 
@@ -150,7 +151,16 @@ class App extends Component{
   }
 
   endGame = () => {
-    this.setState({playing: false})
+    this.setState({playing: false});
+    this.showModal();
+  }
+
+  hideModal = () =>{
+    this.setState({modalShown: false});
+  }
+
+  showModal = () =>{
+    this.setState({modalShown: true});
   }
 
   restartGame = () =>{
@@ -167,7 +177,7 @@ class App extends Component{
       firstCard: null,
       secondCard: null,
       playing: false
-    })
+    });
   }
 
   render() {
@@ -190,6 +200,8 @@ class App extends Component{
             time={this.state.timer}
             moves={this.state.moves}
             stars={this.state.stars}
+            modalShown={this.state.modalShown}
+            hideModal={this.hideModal}
           />
         </div>
       </HashRouter>
